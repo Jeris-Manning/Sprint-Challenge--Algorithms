@@ -111,16 +111,20 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        headlamp = self.light_is_on()
+
         self.set_light_on()
-        while self.can_move_right() or self.light_is_on:
-            while headlamp == True and self.can_move_right() == True:
+        while self.can_move_right() or self.light_is_on():
+
+            while self.light_is_on() == True and self.can_move_right() == True:
+
                 self.lap()
-            if headlamp == True and self.can_move_right() == False:
+            if self.light_is_on() == True and self.can_move_right() == False:
                 while self.can_move_left() == True:
+
                     self.move_left()
                 self.set_light_off()
-            while self.can_move_right == True:
+            while self.can_move_right() == True:
+
                 self.lap()
 
 
